@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>SitecoreNUnitWebTestRunner</id>
-    <version>1.1</version>
+    <version>1.2</version>
     <title>Sitecore NUnit Web Test Runner</title>
     <authors>Jorge Lusar</authors>
     <iconUrl>http://www.sitecore.net/favicon.ico</iconUrl>

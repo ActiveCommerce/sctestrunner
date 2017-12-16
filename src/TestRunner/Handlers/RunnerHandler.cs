@@ -36,12 +36,10 @@
         {
             this.prefix = prefix;
 
-            var codeBase = Assembly.GetExecutingAssembly().CodeBase;
-            var directoryName = Path.GetDirectoryName(codeBase);
-            if (directoryName == null) throw new DirectoryNotFoundException("Unable to determine running location for test runner");
+            var codeBase = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
 
-            // Ensure the assembly path exists
-            var currentDirectory = new Uri(directoryName).LocalPath;
+            var currentDirectory = Path.GetDirectoryName(codeBase);
+            if (currentDirectory == null) throw new DirectoryNotFoundException("Unable to determine running location for test runner");
 
             assemblyList = new List<string>();
             foreach (var assemblyName in assemblies)
