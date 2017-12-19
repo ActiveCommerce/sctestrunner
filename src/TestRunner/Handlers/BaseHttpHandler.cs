@@ -51,7 +51,10 @@
 
         protected void ReturnJson(HttpContextBase context, object o)
         {
-            var json = o == null ? String.Empty : new JavaScriptSerializer().Serialize(o);
+            var json = o == null ? String.Empty : new JavaScriptSerializer()
+            {
+                MaxJsonLength = int.MaxValue
+            }.Serialize(o);
             context.Response.AppendHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
             context.Response.AppendHeader("Pragma", "no-cache"); // HTTP 1.0.
             context.Response.AppendHeader("Expires", "0"); // Proxies.
